@@ -17,10 +17,8 @@ class ICollection(form.Schema):
 
     form.widget(query=QueryStringFieldWidget)
     query = schema.List(
-        title=_(u'label_query', default=u'Search terms'),
-        description=_(u"""Define the search terms for the items you want to
-            list by choosing what to match on.
-            The list of results will be dynamically updated"""),
+        title=_(u'Search terms'),
+        description=_(u"Define the search terms for the items you want to list by choosing what to match on. The list of results will be dynamically updated."),
         value_type=schema.Dict(value_type=schema.Field(),
                                key_type=schema.TextLine()),
         required=False
@@ -39,7 +37,7 @@ class ICollection(form.Schema):
         )
 
     limit = schema.Int(
-        title=_(u'label_limit', default=u'Limit'),
+        title=_(u'Limit'),
         description=_(u'Limit Search Results'),
         required=False,
         default=1000,
