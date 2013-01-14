@@ -1,8 +1,23 @@
 Changelog
 =========
 
-2.0b3 (unreleased)
+2.0b4 (2012-11-26)
 ------------------
+
+- No changes. 2.0b3 was a brown bag release.
+  [timo]
+
+
+2.0b3 (2012-11-26)
+------------------
+
+- Check if item isPrincipiaFolderish instead of the hardcoded portal_type
+  Folder when searching for images
+  [ichimdav]
+
+- Fix thumbnail_view so it works with any portal_atct image types not just
+  with Image and News Items
+  [ichimdav]
 
 - Fix summary_view so shows thumbnails for contents with the image field,
   see http://dev.plone.org/ticket/13010 [kroman0]
@@ -12,6 +27,10 @@ Changelog
 
 - Avoid site error on summary view if some scale generation have failed.
   [thomasdesvenain, kroman0]
+
+- Remove plone.directives.form dependency.
+  [timo]
+
 
 2.0b2 (2012-08-31)
 ------------------

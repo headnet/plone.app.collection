@@ -43,16 +43,18 @@ class Collection(Item):
         results = self.results(batch=False)
 
         _mapping = {'results': results, 'images': {}}
+        portal_atct = getToolByName(self, 'portal_atct')
+        image_types = getattr(portal_atct, 'image_types', [])
 
         for item in results:
             item_path = item.getPath()
-            if item.portal_type == 'Folder':
+            if item.isPrincipiaFolderish:
                 query = {
-                    'portal_type': 'Image',
+                    'portal_type': image_types,
                     'path': item_path,
                 }
                 _mapping['images'][item_path] = IContentListing(catalog(query))
-            elif item.portal_type in ('Image', 'News Item'):
+            elif item.portal_type in image_types:
                 _mapping['images'][item_path] = [item, ]
 
         _mapping['total_number_of_images'] = sum(map(len,

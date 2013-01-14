@@ -24,6 +24,7 @@ Set Review state Criterion
     Wait Until Page Contains Element  xpath=//select[@name="addindex"]
     Select From List  xpath=//select[@name="addindex"]  Review state
     Wait Until Page Contains Element  xpath=//select[@class='queryoperator']
+    Click Element  xpath=//div[@class='criteria']/dl
     Select Checkbox  published
     Live Preview number of results should be  1
     Live Preview should contain  Published Document
@@ -32,11 +33,11 @@ Set Review state Criterion
 Set Creator Criterion To
     [Arguments]  ${creator_criterion}
     Wait Until Page Contains Element  xpath=//select[@name="addindex"]
-    Select From List  xpath=//select[@name="addindex"]  Location
+    Select From List  xpath=//select[@name="addindex"]  Creator
     Wait Until Page Contains Element  xpath=//select[@class='queryoperator']
-    Select From List  xpath=//select[@class='queryoperator']  Creator
+    Select From List  xpath=//select[@class='queryoperator']  Is
     Input Text  name=form.widgets.query.v:records  ${creator_criterion}
-    Wait Until Page Contains  1 items matching your search terms.
+    Wait Until Page Contains  2 items matching your search terms.
     Live Preview should contain  Test user document
     Click Button  Save
 
@@ -62,6 +63,7 @@ Set Type Criterion
     Wait Until Page Contains Element  xpath=//select[@name="addindex"]
     Select From List  xpath=//select[@name="addindex"]  Type
     Wait Until Page Contains Element  xpath=//select[@class='queryoperator']
+    Click Element  xpath=//div[@class='criteria']/dl
     Select Checkbox  Document
     Wait Until Page Contains  1 items matching your search terms.
     Page should contain  My Document
